@@ -1,6 +1,5 @@
 <template>
     <v-app>
-
         <v-navigation-drawer v-model="drawer" class="bg-deep-purple" theme="dark" expand-on-hover rail>
             <v-list>
                 <v-list-item prepend-icon="mdi-account" title="User Name" subtitle="user@asurion.com"></v-list-item>
@@ -30,7 +29,9 @@
         <v-main>
             <!-- output the page content -->
             <slot />
+
         </v-main>
+
     </v-app>
 </template>
 
