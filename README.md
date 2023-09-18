@@ -1,11 +1,16 @@
 # Nuxt 3 - Vuetify - TypeScript Project
 
 ## Tech Stack
-Azure VM with IIS
+Azure VM with IIS 
+
 Azure VM with Sql Server 
+ 
 Nuxt 3
+ 
 Vuetify
+ 
 TypeScript
+ 
 
 ## Prerequisites
 [Node.js - v16.10.0 or newer](hhttps://nodejs.org/en)
