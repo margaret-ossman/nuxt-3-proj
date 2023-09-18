@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "vue.volar",
-        "sdras.vue-vscode-snippets"
+        "sdras.vue-vscode-snippets",
+        "pkief.material-icon-theme",
+        "nuxtr.nuxtr-vscode"
     ]
 }
