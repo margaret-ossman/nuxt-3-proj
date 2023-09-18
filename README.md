@@ -42,6 +42,8 @@ git clone
 # install the dependencies
 npm install
 
+npm install --save-dev typescript
+
 # add vuetifyjs to the project
 npm i vuetify@next
 
