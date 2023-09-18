@@ -1,4 +1,10 @@
-# Nuxt 3 - Vuetify - TypeScript 
+# Nuxt 3 - Vuetify - TypeScript Project
+
+## Tech Stack
+
+IIS
+Sql Server 
+
 
 ## Prerequisites
 [Node.js - v16.10.0 or newer](hhttps://nodejs.org/en)
@@ -73,3 +79,5 @@ npm run preview
 [Vuetifyjs Treeshaking](https://vuetifyjs.com/en/features/treeshaking/)
 
 [vite plugin ](https://www.npmjs.com/package/vite-plugin-vuetify)
+
+[Type Script](https://www.typescriptlang.org/docs/)
