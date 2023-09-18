@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     }
   },
 
-  typescript: { shim: false },
+  typescript: { shim: true },
   devtools: { enabled: true },
 })
 
