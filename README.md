@@ -21,7 +21,7 @@
 - [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
 - [Vue VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets)
 - [Nuxtr](https://marketplace.visualstudio.com/items?itemName=Nuxtr.nuxtr-vscode)
-- [Docker Docs](https://docs.docker.com/)
+
 
 ## Local Setup
 ````bash
@@ -92,6 +92,33 @@ nuxt-3-proj/
 ├─ settings.scss
 ├─ tsconfig.json
 ````
+# Installing Docker on Windows Server 2016 Datacenter
+
+## Prerequisites
+
+- Windows Server 2016 Datacenter Edition
+- Administrative access to the server
+- Internet access
+
+```powershell
+# Install the Containers Feature
+Install-WindowsFeature -Name Containers
+
+#Install Docker
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+Install-Module -Name DockerMsftProvider -Force
+Install-Package -Name docker -ProviderName DockerMsftProvider -Force
+
+# Reboot the Server
+Restart-Computer -Force
+
+# Start Docker Service
+Start-Service Docker
+
+#Verify Docker Installation
+docker --version
+
+````
 
 ## Documentation
 
@@ -100,3 +127,4 @@ nuxt-3-proj/
 - [Materialize documentation](https://materializecss.com/)
 - [Google Fonts for Nuxt 3](https://google-fonts.nuxtjs.org/getting-started/setup)
 - [TypeScript](https://www.typescriptlang.org/docs/)
+- [Docker Docs](https://docs.docker.com/)
