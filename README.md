@@ -54,6 +54,12 @@ docker compose up --build
 
 # Build and run the development container
 docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+docker compose -f docker-compose.dev.yml up --build --no-cache
+
+docker compose -f docker-compose.yml down --remove-orphans
+docker compose -f docker-compose.dev.yml down --remove-orphans
+docker-compose build --no-cache
+
 ````
 
 ## File Structure
@@ -80,8 +86,8 @@ nuxt-3-proj/
 ├─ .env
 ├─ .gitignore
 ├─ .npmrc
-├─ .docker-compose.dev.yml
-├─ .docker-compose.yml
+├─ docker-compose.dev.yml
+├─ docker-compose.yml
 ├─ Dockerfile
 ├─ Dockerfile.dev
 ├─ nuxt-3-proj.code-workspace
@@ -118,6 +124,7 @@ Start-Service Docker
 #Verify Docker Installation
 docker --version
 
+netstat -ano | findstr :3000 
 ````
 
 ## Documentation
