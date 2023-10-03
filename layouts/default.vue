@@ -4,7 +4,7 @@
             <!--  -->
             <v-list density="compact" nav>
                 <!-- Vuetify supports Material Design Icons, Material Icons, Font Awesome 4 and Font Awesome 5 -->
-                <v-list-subheader>REPORTS</v-list-subheader>
+                <v-list-subheader>Main</v-list-subheader>
                 <v-list-item v-for="(item, i) in items" :key="i" :value="item" color="primary" rounded="shaped"
                     :to="item.route" link nuxt>
 
@@ -14,7 +14,7 @@
 
                     <v-list-item-title v-text="item.text"></v-list-item-title>
                 </v-list-item>
-
+                <v-list-subheader>Section 2</v-list-subheader>
                 <!-- https://pictogrammers.com/library/mdi/ -->
             </v-list>
         </v-navigation-drawer>
@@ -23,6 +23,8 @@
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
             <v-app-bar-title>Application</v-app-bar-title>
+            <v-spacer></v-spacer>
+            <v-chip>{{ time }}</v-chip>
         </v-app-bar>
 
 
@@ -36,13 +38,13 @@
 
 <script setup>
 import { ref } from 'vue'
-
+const time = await $fetch('/api/now')
 const drawer = ref(null)
 const items = [
-    { text: 'Dashboard', icon: 'mdi-clock', route: '/' },
-    { text: 'Edit', icon: 'mdi-account', route: '/edit' },
-    { text: 'Security', icon: 'mdi-flag', route: '/security' },
-    { text: 'Contact', icon: 'mdi-clock', route: '/contact' },
+    { text: 'Home', icon: 'mdi-home', route: '/' },
+    { text: 'Edit', icon: 'mdi-table-edit', route: '/edit' },
+    { text: 'Security', icon: 'mdi-shield-account', route: '/security' },
+    { text: 'Contact', icon: 'mdi-card-account-mail', route: '/contact' },
 ]
 </script>
   
@@ -50,10 +52,10 @@ const items = [
 export default {
     data: () => ({
         items: [
-            { text: 'Dashboard', icon: 'mdi-clock', route: '/' },
-            { text: 'Edit', icon: 'mdi-account', route: '/edit' },
-            { text: 'Security', icon: 'mdi-flag', route: '/security' },
-            { text: 'Contact', icon: 'mdi-clock', route: '/contact' },
+            { text: 'Home', icon: 'mdi-home', route: '/' },
+            { text: 'Edit', icon: 'mdi-table-edit', route: '/edit' },
+            { text: 'Security', icon: 'mdi-shield-account', route: '/security' },
+            { text: 'Contact', icon: 'mdi-card-account-mail', route: '/contact' },
         ],
     }),
 }

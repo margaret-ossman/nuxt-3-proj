@@ -1,4 +1,5 @@
 import { IncomingMessage, ServerResponse } from "http"
 export default (req: IncomingMessage, res: ServerResponse) => {
-    return new Date().toLocaleTimeString()
+    const time = new Date().toLocaleTimeString([], { hour12: true, hourCycle: 'h23' });
+    return time
 }
