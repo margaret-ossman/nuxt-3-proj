@@ -1,46 +1,61 @@
 <template>
-    <v-layout class="rounded rounded-md">
-        <v-navigation-drawer class="bg-deep-purple" theme="dark" expand-on-hover rail permanent>
-            <v-list>
-                <v-list-item prepend-icon="mdi-account" title="User Name" subtitle="user@asurion.com"></v-list-item>
-            </v-list>
-            <v-divider></v-divider>
+    <v-app id="inspire">
+        <v-navigation-drawer theme="dark" v-model="drawer">
+            <!--  -->
             <v-list density="compact" nav>
                 <!-- Vuetify supports Material Design Icons, Material Icons, Font Awesome 4 and Font Awesome 5 -->
-                <v-list-item to="/" prepend-icon="mdi-table-large" title="Dashboard" link nuxt></v-list-item>
-                <v-list-item to="/edit" prepend-icon="mdi-table-edit" title="Edit" link nuxt></v-list-item>
-                <v-list-item to="/security" prepend-icon="mdi-security" title="Security" link nuxt></v-list-item>
-                <v-list-item to="/contact" prepend-icon="mdi-card-account-mail" title="Contact" link nuxt></v-list-item>
-                <v-list-item to="/demos/demo1" prepend-icon="mdi-card-account-mail" title="Demos" link nuxt></v-list-item>
+                <v-list-subheader>REPORTS</v-list-subheader>
+                <v-list-item v-for="(item, i) in items" :key="i" :value="item" color="primary" rounded="shaped"
+                    :to="item.route" link nuxt>
+
+                    <template v-slot:prepend>
+                        <v-icon :icon="item.icon"></v-icon>
+                    </template>
+
+                    <v-list-item-title v-text="item.text"></v-list-item-title>
+                </v-list-item>
 
                 <!-- https://pictogrammers.com/library/mdi/ -->
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar order="-1" color="grey-darken-3" title="Application bar">
-            <h3>{{ time }}</h3>
-            <template v-slot:append>
+        <v-app-bar theme="dark">
+            <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            </template>
+            <v-app-bar-title>Application</v-app-bar-title>
         </v-app-bar>
 
+
+
         <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
-            <!-- output the page content -->
+            <!--  -->
             <slot />
         </v-main>
-    </v-layout>
+    </v-app>
 </template>
-  
+
 <script setup>
 import { ref } from 'vue'
-const time = await $fetch('/api/now')
-const order = ref(0)
+
+const drawer = ref(null)
+const items = [
+    { text: 'Dashboard', icon: 'mdi-clock', route: '/' },
+    { text: 'Edit', icon: 'mdi-account', route: '/edit' },
+    { text: 'Security', icon: 'mdi-flag', route: '/security' },
+    { text: 'Contact', icon: 'mdi-clock', route: '/contact' },
+]
 </script>
   
 <script>
 export default {
     data: () => ({
-        order: 0,
+        items: [
+            { text: 'Dashboard', icon: 'mdi-clock', route: '/' },
+            { text: 'Edit', icon: 'mdi-account', route: '/edit' },
+            { text: 'Security', icon: 'mdi-flag', route: '/security' },
+            { text: 'Contact', icon: 'mdi-clock', route: '/contact' },
+        ],
     }),
 }
+
 </script>
